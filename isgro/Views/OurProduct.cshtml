@@ -1,0 +1,139 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+	var pageColor = Model.Value("ps_pagePrimaryColor");
+}
+
+@section CSS
+{
+	<style>
+		body{
+		--orange:#@pageColor;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="/assets/css/product.css" />
+}
+<partial name="TopSection">
+    @{
+        var caseheader = Model.Value<BlockGridModel>("case_heading").FirstOrDefault();
+        var caseImages = Model.Value<IEnumerable<IPublishedContent>>("case_images");
+        if (caseheader != null)
+		{
+            var caseicon = caseheader.Content.Value<IPublishedContent>("icon");
+			<section class="case_section">
+				<div class="container">
+                    <div class="section-heading">
+                        @if (caseicon != null)
+                        {
+                            <div class="svg-icon" data-aos="fade-right">
+                                <img src="@caseicon.Url()" alt="" />
+                            </div>
+                        }
+                        <div class="heading" data-aos="fade-up">
+                            @if (caseheader.Content.HasValue("title"))
+                            {
+                                <h4>
+                                    @Html.Raw(caseheader.Content.Value("title"))
+                                </h4>
+                            }
+                            @if (caseheader.Content.HasValue("heading"))
+                            {
+                                <h2>
+                                    @Html.Raw(caseheader.Content.Value("heading"))
+                                </h2>
+                            }
+                        </div>
+                    </div>
+				</div>
+            </section>
+        }
+        if (caseImages != null && caseImages.Count() > 0)
+        {
+            <section class="casse_images">
+                @foreach (var item in caseImages)
+                {
+                    <div class="bg-img" style="background: url(@item.Url())" data-aos="zoom-in"></div>
+                }
+            </section>
+        }
+    }
+    @{
+        var sevenheader = Model.Value<BlockGridModel>("ss_heading").FirstOrDefault();
+        var sevenList = Model.Value<BlockGridModel>("services");
+        if (sevenheader != null || sevenList.Count() > 0)
+        {
+            <section class="service_section">
+                <div class="container">
+                    @if (sevenheader!=null)
+                    {
+                        var ssicon = sevenheader.Content.Value<IPublishedContent>("icon");
+                        <div class="section-heading">
+                            @if (ssicon != null)
+                            {
+                                <div class="svg-icon" data-aos="fade-right">
+                                    <img src="@ssicon.Url()" alt="" />
+                                </div>
+                            }
+                            <div class="heading" data-aos="fade-up">
+                                @if (sevenheader.Content.HasValue("title"))
+                                {
+                                    <h4>
+                                        @Html.Raw(sevenheader.Content.Value("title"))
+                                    </h4>
+                                }
+                                @if (sevenheader.Content.HasValue("heading"))
+                                {
+                                    <h2>
+                                        @Html.Raw(sevenheader.Content.Value("heading"))
+                                    </h2>
+                                }
+                            </div>
+                        </div>
+                    }
+                    @if (sevenList.Count()>0)
+                    {
+                        <div class="service-list">
+                            <ul>
+                                @for (var i = 0; i < sevenList.Count();i++)
+                                {
+                                   
+                                        var _ele = sevenList.ElementAt(i);
+                                        var _list = _ele.Content.Value<IEnumerable<String>>("listItem");
+                                        <li data-aos="zoom-in">
+                                            <span>@(i<9?0:"")@(i+1)</span>
+                                            <h4>@_ele.Content.Value("sl_title")</h4>
+                                            @foreach (var item in _list)
+                                            {
+                                                <p>@item</p>
+                                            }
+                                        </li>
+                                }
+                            </ul>
+                            <ul>
+                                @for (var i = 0; i < sevenList.Count(); i++)
+                                {
+                                    if (i % 2 == 1)
+                                    {
+                                        var _ele = sevenList.ElementAt(i);
+                                        var _list = _ele.Content.Value<IEnumerable<String>>("listItem");
+                                        <li data-aos="zoom-in">
+                                            <span>@(i < 9 ? 0 : "")@(i + 1)</span>
+                                            <h4>@_ele.Content.Value("sl_title")</h4>
+                                            @foreach (var item in _list)
+                                            {
+                                                <p>@item</p>
+                                            }
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </section>
+        }
+    }
+    <partial name="Contact">

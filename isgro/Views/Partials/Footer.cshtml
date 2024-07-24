@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var site = Model.Root();
+    var footerlinks = site.Value<IEnumerable<Link>>("footerLinks");
+}
+<footer id="footer">
+    <div class="container">
+        <div class="row gap-4 gap-md-0">
+            <div class="col-md-4 address">
+                @Html.Raw(site.Value("footerAddress"))
+            </div>
+            <div class="col-md-5 links">
+                @if (footerlinks != null && footerlinks.Count() > 0)
+                {
+                    <ul class="list-unstyled">
+                        @foreach (var link in footerlinks)
+                        {
+                            <li>
+                                <a class="" href="@link.Url" target="@link.Target"> @link.Name</a>
+                            </li>                            
+                        }
+                    </ul>                    
+                }
+            </div>
+            <div class="col-md-3 social">
+                @if (site.HasValue("linkedInUrl") || site.HasValue("facebookUrl") || site.HasValue("instagramUrl"))
+                {
+                    <ul class="list-unstyled d-flex justify-content-start justify-content-md-end">
+                        @if (site.HasValue("linkedInUrl"))
+                        {
+                            <li>
+                                <a href="@site.Value("linkedInUrl")" target="_blank">
+                                    <img src="/assets/icons/linkedin.svg" alt="" />
+                                </a>
+                            </li>
+                        }
+                        @if (site.HasValue("facebookUrl"))
+                        {
+                            <li>
+                                <a href="@site.Value("facebookUrl")" target="_blank">
+                                    <img src="/assets/icons/facebook.svg" alt="" />
+                                </a>
+                            </li>
+                        }
+                        @if (site.HasValue("instagramUrl"))
+                        {
+                            <li>
+                                <a href="@site.Value("instagramUrl")" target="_blank">
+                                    <img src="/assets/icons/instagram.svg" alt="" />
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                    
+                }
+            </div>
+        </div>
+    </div>
+</footer>

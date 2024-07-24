@@ -1,0 +1,175 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+<partial name="TopSection">
+	@{
+        var bs_heading = Model.Value<BlockGridModel>("bs_heading").FirstOrDefault();
+		var brandItems = Model.Value<BlockGridModel>("brandItems");
+		if (bs_heading != null || brandItems.Count()>0)
+		{
+			<section class="brand_section">
+				<div class="container">
+					@if (bs_heading!=null)
+					{
+						var icon = bs_heading.Content.Value<IPublishedContent>("icon");
+                        <div class="section-heading">
+                            @if (icon != null)
+                            {
+                                <div class="svg-icon" data-aos="fade-right">
+                                    <img src="@icon.Url()" alt="" />
+                                </div>
+                            }
+                            <div class="heading" data-aos="fade-up">
+                                @if (bs_heading.Content.HasValue("title"))
+                                {
+                                    <h4>
+                                        @Html.Raw(bs_heading.Content.Value("title"))
+                                    </h4>
+                                }
+                                @if (bs_heading.Content.HasValue("heading"))
+                                {
+                                    <h2>
+                                        @Html.Raw(bs_heading.Content.Value("heading"))
+                                    </h2>
+                                }
+                            </div>
+                        </div>
+					}
+                    @if (brandItems.Count() > 0)
+                    {
+                        <div class="brand_wrap">
+                            @foreach (var item in brandItems)
+                            {
+                                var bimg = item.Content.Value<IPublishedContent>("brandIcon");
+                                <div class="brand-item" data-aos="zoom-in">
+                                <div class="b-icon">
+                                    <img src="@bimg?.Url()" alt="" />
+                                    </div>
+                                    <p>@item.Content.Value("brandName")</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+			</section>
+		}
+	}
+    @{
+        var fy_heading = Model.Value<BlockGridModel>("fy_heading").FirstOrDefault();
+        var forYouItems = Model.Value<BlockGridModel>("forYouItems");
+        if (fy_heading!=null)
+        {
+            var icon = fy_heading.Content.Value<IPublishedContent>("icon");
+            <section class="fy_section">
+                <div class="container">
+                    <div class="section-heading">
+                        @if (icon != null)
+                        {
+                            <div class="svg-icon" data-aos="fade-right">
+                                <img src="@icon.Url()" alt="" />
+                            </div>
+                        }
+                        <div class="heading" data-aos="fade-up">
+                            @if (fy_heading.Content.HasValue("title"))
+                            {
+                                <h4>
+                                    @Html.Raw(fy_heading.Content.Value("title"))
+                                </h4>
+                            }
+                            @if (fy_heading.Content.HasValue("heading"))
+                            {
+                                <h2>
+                                    @Html.Raw(fy_heading.Content.Value("heading"))
+                                </h2>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+        if (forYouItems.Count()>0)
+        {
+            var increement = 0;
+            <section class="fy-accordian">
+                <div class="accordion" id="accordionFy">
+                    @foreach (var item in forYouItems)
+                    {
+                        <div class="accordion-item">
+                            <div class="accordion-header" id="fyh-@increement" data-bs-toggle="collapse" data-bs-target="#fy-@increement" aria-expanded="false" aria-controls="fy-@increement">
+                                <div class="container d-flex align-items-center justify-content-between">
+                                    <h2>@item.Content.Value("fyf_title")</h2>
+                                    <div class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="54" viewBox="0 0 65 54" fill="none">
+                                            <line y1="27" x2="63" y2="27" stroke="currentColor" stroke-width="2" />
+                                            <line x1="37.7071" y1="1.29289" x2="63.7071" y2="27.2929" stroke="currentColor" stroke-width="2" />
+                                            <line x1="36.2929" y1="53.2929" x2="62.2929" y2="27.2929" stroke="currentColor" stroke-width="2" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="fy-@increement" class="accordion-collapse collapse container" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFy">
+                                <div class="accordion-body">
+                                    @Html.Raw(item.Content.Value("fyf_content"))
+                                </div>
+                            </div>
+                        </div>
+                        increement++;
+                    }                    
+                </div>
+            </section>
+        }
+    }
+    @{
+        var js_heading = Model.Value<BlockGridModel>("js_heading").FirstOrDefault();
+        if (js_heading != null || Model.HasValue("js_description"))
+        {
+            <section class="js_section">
+                <div class="container">
+                    @if (js_heading!=null)
+                    {
+                        var icon = js_heading.Content.Value<IPublishedContent>("icon");
+                        <div class="section-heading">
+                            @if (icon != null)
+                            {
+                                <div class="svg-icon" data-aos="fade-right">
+                                    <img src="@icon.Url()" alt="" />
+                                </div>
+                            }
+                            <div class="heading" data-aos="fade-up">
+                                @if (js_heading.Content.HasValue("title"))
+                                {
+                                    <h4>
+                                        @Html.Raw(js_heading.Content.Value("title"))
+                                    </h4>
+                                }
+                                @if (js_heading.Content.HasValue("heading"))
+                                {
+                                    <h2>
+                                        @Html.Raw(js_heading.Content.Value("heading"))
+                                    </h2>
+                                }
+                            </div>
+                        </div>
+                    }
+                    @if (Model.HasValue("js_description"))
+                    {
+                        <div class="d-flex flex-row justify-content-end">
+                            <div class="description" data-aos="fade-up">
+                                @Html.Raw(Model.Value("js_description"))
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        }
+    }
+<partial name="Contact">
+
+@section CSS
+{
+	<link rel="stylesheet" type="text/css" href="/assets/css/about.css" />
+}

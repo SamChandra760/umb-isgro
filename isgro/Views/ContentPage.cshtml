@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+<section>
+	<div class="container py-5">
+		@if (Model.HasValue("heading")){
+		<div class="section-heading mb-5">
+				<div class="heading" data-aos="fade-up">
+			<h2>
+				@Html.Raw(Model.Value("heading"))
+			</h2>
+			</div>
+		</div>
+		}
+		@Html.Raw(Model.Value("content"))
+	</div>
+</section>

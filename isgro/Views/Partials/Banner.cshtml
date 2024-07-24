@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var bannerMedia = Model.Value<IPublishedContent>("b_media");
+    var bannerType = bannerMedia?.ContentType.Alias;
+}
+@if (bannerMedia != null)
+{
+    <section class="banner">
+        <div class="banner_wraper">
+            <div class="banner_item video_wraper">
+                @if (bannerType=="Image")
+                {
+                    <div class="banner_img bg-img" style="background: url(@bannerMedia.Url())"></div>
+                }
+                else
+                {
+                    <video class="banner_video">
+                        <source src="@bannerMedia.Url()">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button type="button" class="play">
+                        <img src="~/assets/icons/play.svg"/>
+                    </button>
+                }
+            </div>
+        </div>
+    </section>
+}

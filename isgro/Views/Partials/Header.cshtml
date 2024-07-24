@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var site = Model.Root();
+    var siteLogo = site.Value<IPublishedContent>("siteLogo");
+    var pageLogo = Model.Value<IPublishedContent>("ps_headerLogo");
+}
+<header id="header">
+    <nav class="navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                @if (pageLogo != null)
+                {
+                    <img src="@pageLogo.Url()" class="logo img-fluid" alt="logo" />
+                }
+                else
+                {
+                    <img src="@siteLogo?.Url()" class="logo img-fluid" alt="logo" />
+                }
+            </a>
+            <a class="navbar-toggler" role="button" aria-controls="offcanvasMenu">
+                <img src="/assets/icons/menu.svg" class="menu-icon img-fluid" alt="logo" />
+            </a>
+        </div>
+    </nav>
+</header>

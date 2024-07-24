@@ -1,0 +1,48 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var topHeader = Model.Value<BlockGridModel>("ts_heading").FirstOrDefault();
+}
+@if (topHeader != null || Model.HasValue("ts_description"))
+{
+    <section class="top-section">
+        <div class="container">
+            @if (topHeader != null)
+            {
+                var headericon = topHeader.Content.Value<IPublishedContent>("icon");
+                <div class="section-heading">
+                    @if (headericon != null)
+                    {
+                        <div class="svg-icon" data-aos="fade-right">
+                            <img src="@headericon.Url()" alt="" />
+                        </div>
+                    }
+                    <div class="heading" data-aos="fade-up">
+                        @if (topHeader.Content.HasValue("title"))
+                        {
+                            <h4>
+                                @Html.Raw(topHeader.Content.Value("title"))
+                            </h4>
+                        }
+                        @if (topHeader.Content.HasValue("heading"))
+                        {
+                            <h2>
+                                @Html.Raw(topHeader.Content.Value("heading"))
+                            </h2>
+                        }
+                    </div>
+                </div>
+            }
+            @if (Model.HasValue("ts_description"))
+            {
+                <div class="d-flex flex-row justify-content-end">
+                    <div class="description" data-aos="fade-up">
+                        @Html.Raw(Model.Value("ts_description"))
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}

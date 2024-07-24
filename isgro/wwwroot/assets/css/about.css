@@ -1,0 +1,144 @@
+.brand_section {
+    background: var(--dark-orange);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+    .brand_section .section-heading {
+        --heading-title-color: var(--background);
+        --heading-color: var(--background);
+        margin-bottom:6rem;
+    }
+.brand_wrap {
+    display:flex;
+    flex-wrap:wrap;
+    column-gap:3rem;
+    row-gap:3rem;
+}
+    .brand_wrap .brand-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+        min-width: calc((100% - 3rem) / 2);
+        max-width: calc((100% - 3rem) / 2);
+    }
+        .brand_wrap .brand-item .b-icon {
+            height: 100px;
+            display: flex;
+        }
+        .brand_wrap .brand-item p {
+            color: var(--orange);
+            text-align: center;
+            font-family: var(--clashrotesk-variable);
+            font-size: 1.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            max-width: 520px;
+            margin-bottom: 0px;
+            justify-content: flex-end;
+        }
+.fy_section {
+    padding-top:5rem;
+    padding-bottom:5rem;
+}
+    .fy_section .section-heading{
+
+    }
+
+.fy-accordian {
+}
+    .fy-accordian .accordion {
+    }
+        .fy-accordian .accordion .accordion-item {
+        }
+            .fy-accordian .accordion .accordion-item .accordion-header {
+                background: var(--orange);
+                padding-top:2rem;
+                padding-bottom:2rem;
+            }
+                .fy-accordian .accordion .accordion-item .accordion-header h2 {
+                    color:var(--background);
+                    font-size: 2.75rem;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+                .fy-accordian .accordion .accordion-item .accordion-header .icon {
+                    background: var(--background);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 126px;
+                    min-height: 126px;
+                    border-radius: 50%;
+                    color: var(--orange);
+                    transform: rotate(90deg);
+                    transition-duration: 0.325s;
+                    transition-property: transform;
+                }
+            .fy-accordian .accordion .accordion-item:has(.collapse.show) .accordion-header .icon {
+                transform: rotate(-90deg);
+            }
+            .fy-accordian .accordion .accordion-item .accordion-body {
+                --bs-accordion-body-padding-x: 0px;
+                --bs-accordion-body-padding-y: 2rem;
+            }
+.js_section{
+    background:var(--dark-orange);
+    padding-top:6rem;
+    padding-bottom:6rem;
+}
+    .js_section .section-heading {
+        --heading-title-color: var(--background);
+        --heading-color: var(--background);
+    }
+.js_section .description{
+    color:var(--background);
+    margin-top:3rem;
+}
+@media (max-width: 1200px) {
+    .brand_section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+        .brand_section .section-heading {
+            margin-bottom: 4rem;
+        }
+    .brand_wrap .brand-item p {
+        font-size: 1.5rem;
+    }
+    .fy_section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .fy-accordian .accordion .accordion-item .accordion-header .icon {
+        min-width: 106px;
+        min-height: 106px;
+    }
+    .js_section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+@media (max-width: 767px) {
+    .brand_wrap .brand-item .b-icon {
+        height: 80px;
+        max-width: 70px;
+    }
+    .fy-accordian .accordion .accordion-item .accordion-header .icon {
+        min-width: 86px;
+        min-height: 86px;
+    }
+    .fy-accordian .accordion .accordion-item .accordion-header h2 {
+        font-size: 2rem;
+    }
+    .fy-accordian .accordion .accordion-item .accordion-header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+@media (max-width: 575px) {
+    .brand_wrap {
+        flex-direction:column;
+        align-items:center;
+    }
+}

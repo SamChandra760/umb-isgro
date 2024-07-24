@@ -1,0 +1,158 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+    var pageColor = Model.Value("ps_pagePrimaryColor");
+}
+@{
+    var ds_heading = Model.Value<BlockGridModel>("ds_heading").FirstOrDefault();
+    var ds_content = Model.Value<BlockGridModel>("ds_content");
+    if (ds_heading != null || ds_content.Count()>0)
+    {
+        <section class="ds_section">
+        <div class="container">
+                @if (ds_heading != null)
+                {
+                    var icon = ds_heading.Content.Value<IPublishedContent>("icon");
+                    <div class="section-heading">
+                        @if (icon != null)
+                        {
+                            <div class="svg-icon" data-aos="fade-right">
+                                <img src="@icon.Url()" alt="" />
+                            </div>
+                        }
+                        <div class="heading" data-aos="fade-up">
+                            @if (ds_heading.Content.HasValue("title"))
+                            {
+                                <h4>
+                                    @Html.Raw(ds_heading.Content.Value("title"))
+                                </h4>
+                            }
+                            @if (ds_heading.Content.HasValue("heading"))
+                            {
+                                <h2>
+                                    @Html.Raw(ds_heading.Content.Value("heading"))
+                                </h2>
+                            }
+                        </div>
+                    </div>
+                }
+                @if (ds_content.Count()>0)
+                {
+                    <div class="ds-content">
+                        @foreach (var item in ds_content)
+                        {
+                            var images = item.Content.Value<IEnumerable<IPublishedContent>>("image");
+                            var imagesPosition = item.Content.Value<String>("imagePosition");
+                            <div class="ds-content-item">
+                                @if (imagesPosition == "Left")
+                                {
+                                    foreach (var img in images)
+                                    {
+                                        <img src="@img.Url()" alt="" data-aos="fade-right" />
+                                    }
+                                }
+                                <div class="content" data-aos="fade-up">
+                                    @Html.Raw(item.Content.Value("content"))
+                                </div>
+                                @if (imagesPosition == "Right")
+                                {
+                                    foreach (var img in images)
+                                    {
+                                        <img src="@img.Url()" alt="" data-aos="fade-left" />
+                                    }
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+
+        </div>
+        </section>
+    }
+}
+@if (Model.HasValue("cmp_heading") || Model.HasValue("cmp_description") || Model.HasValue("cmp_video"))
+{
+    <section class="compaign_section">
+        <div class="container">
+            @if (Model.HasValue("cmp_heading"))
+            {
+                <div class="section-heading">
+                    <div class="heading" data-aos="fade-up">
+                        <h2>@Model.Value("cmp_heading")</h2>
+                    </div>
+                </div>
+            }
+            @Html.Raw(Model.Value("cmp_description"))
+        </div>
+        @if (Model.HasValue("cmp_video"))
+        {
+            var _video = Model.Value<IPublishedContent>("cmp_video");
+            <div class="compaign_video_wrap video_wraper">
+                <video class="banner_video">
+                    <source src="@_video.Url()">
+                    Your browser does not support the video tag.
+                </video>
+                <button type="button" class="play">
+                    <img src="~/assets/icons/play.svg" />
+                </button>
+                </div>
+        }
+    </section>
+}
+@{
+    var caseheader = Model.Value<BlockGridModel>("case_heading").FirstOrDefault();
+    var caseImages = Model.Value<IEnumerable<IPublishedContent>>("case_images");
+    if (caseheader != null)
+    {
+        var caseicon = caseheader.Content.Value<IPublishedContent>("icon");
+        <section class="case_section">
+            <div class="container">
+                <div class="section-heading">
+                    @if (caseicon != null)
+                    {
+                        <div class="svg-icon" data-aos="fade-right">
+                            <img src="@caseicon.Url()" alt="" />
+                        </div>
+                    }
+                    <div class="heading" data-aos="fade-up">
+                        @if (caseheader.Content.HasValue("title"))
+                        {
+                            <h4>
+                                @Html.Raw(caseheader.Content.Value("title"))
+                            </h4>
+                        }
+                        @if (caseheader.Content.HasValue("heading"))
+                        {
+                            <h2>
+                                @Html.Raw(caseheader.Content.Value("heading"))
+                            </h2>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    if (caseImages != null && caseImages.Count() > 0)
+    {
+        <section class="casse_images">
+            @foreach (var item in caseImages)
+            {
+                <div class="bg-img" style="background: url(@item.Url())" data-aos="zoom-in"></div>
+            }
+        </section>
+    }
+}
+<partial name="Contact">
+
+@section CSS
+{
+        <style>
+            body {
+                --orange: #@pageColor;
+            }
+        </style>
+    <link rel="stylesheet" type="text/css" href="/assets/css/journey.css" />
+}
