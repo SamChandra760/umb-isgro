@@ -2,4 +2,5 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/isgro/FileContentIndex/25c495c9-0477-49ae-b770-9499311a0d50.vsidx
+/.vs
+/isgro/obj

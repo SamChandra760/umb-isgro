@@ -6,9 +6,10 @@
         padding-bottom:9rem;
     }
     .hoj-section .section-heading {
+        --heading-title-color: var(--background);
         --heading-color: var(--background);
         --heading-heighlight-color: var(--dark-orange);
-        margin-bottom:3.5rem;
+        margin-bottom: 3.5rem;
     }
     .hoj-section .d-l {
         column-gap: 3rem;

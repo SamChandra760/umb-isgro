@@ -19,7 +19,7 @@
 <partial name="TopSection">
     @{
         var caseheader = Model.Value<BlockGridModel>("case_heading").FirstOrDefault();
-        var caseImages = Model.Value<IEnumerable<IPublishedContent>>("case_images");
+        var caseLinks = Model.Value<BlockGridModel>("case_links");
         if (caseheader != null)
 		{
             var caseicon = caseheader.Content.Value<IPublishedContent>("icon");
@@ -50,12 +50,14 @@
 				</div>
             </section>
         }
-        if (caseImages != null && caseImages.Count() > 0)
+        if (caseLinks != null && caseLinks.Count() > 0)
         {
             <section class="casse_images">
-                @foreach (var item in caseImages)
+                @foreach (var item in caseLinks)
                 {
-                    <div class="bg-img" style="background: url(@item.Url())" data-aos="zoom-in"></div>
+                    var linkImage = item.Content.Value<IPublishedContent>("il_image");
+                    var link = item.Content.Value<Link>("il_link");
+                    <a class="bg-img" href="@link.Url" target="@link.Target" style="background: url(@linkImage?.Url())" data-aos="zoom-in"></a>
                 }
             </section>
         }

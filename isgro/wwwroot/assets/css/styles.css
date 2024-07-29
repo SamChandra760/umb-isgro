@@ -72,9 +72,15 @@ img{max-width:100%;}
 #footer .social ul {
     column-gap: 1.125rem;
 }
+.banner.only-mobile{
+    display:none;
+}
 .banner .banner_wraper .banner_item {
     aspect-ratio: 16/9;
 }
+    .banner .banner_wraper .banner_item.show-on-mobile {
+       display:none;
+    }
 .banner .banner_wraper .banner_item .banner_img, .banner .banner_wraper .banner_item .banner_video {
     width: 100%;
     height: 100%
@@ -340,6 +346,15 @@ max-width:660px;
     }
     .navbar-toggler {
     max-width:74px;
+    }
+    .banner.only-mobile {
+        display: block;
+    }
+    .banner .banner_wraper .banner_item.hide-on-mobile {
+        display: none;
+    }
+    .banner .banner_wraper .banner_item.show-on-mobile {
+        display: block;
     }
         .s-h-p-l {
         padding-left: 0px;
