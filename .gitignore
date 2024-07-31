@@ -4,3 +4,5 @@
 
 /.vs
 /isgro/obj
+isgro/appsettings.json
+/isgro/bin
