@@ -3,78 +3,79 @@
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = null;
-	var site = Model.Root();
-	var productUrl = site.Value<BlockGridModel>("productUrl");
+  Layout = null;
+  var site = Model.Root();
+  var productUrl = site.Value<BlockGridModel>("productUrl");
 }
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<partial name="MetaHead">
-	<link href="/assets/fonts/ClashGrotesk-Variable/Fonts/WEB/css/clash-grotesk.css" rel="stylesheet">
-	<link href="/assets/lib/bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-		<link href="/assets/css/unpkg.com_aos@2.3.1_dist_aos.css" rel="stylesheet" crossorigin="anonymous" />
-		<link href="/assets/css/styles.css" rel="stylesheet">
-		@RenderSection("CSS", required: false)
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <partial name="MetaHead">
+    <link href="/assets/fonts/ClashGrotesk-Variable/Fonts/WEB/css/clash-grotesk.css" rel="stylesheet">
+    <link href="/assets/lib/bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="/assets/css/unpkg.com_aos@2.3.1_dist_aos.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    @RenderSection("CSS", required: false)
 </head>
 
 <body>
-	<partial name="Header">
-	<partial name="Banner">
-	@RenderBody()
-	<partial name="Footer">
-	@if (productUrl != null && productUrl.Count()>0)
-	{
-		<ul class="product-url">
-			@foreach (var item in productUrl)
-			{
-				var link = item.Content.Value<Link>("link");
-				var color = item.Content.Value("color");
-							<li style="--productColor:#@color" class="@(link.Url == Model.Url()?"active":"")">
-					<a href="@link.Url" target="@link.Target" class="">
-						@if (link.Url == Model.Url())
-						{
-							<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
-								<g clip-path="url(#clip0_831_321)">
-									<path d="M39 36.5443C39 37.8998 37.908 38.9999 36.5625 38.9999H2.4375C1.092 38.9999 0 37.8998 0 36.5443V11.0501C0 10.1194 0.521625 9.2698 1.34794 8.8548L18.4104 0.260169C19.0978 -0.086072 19.9046 -0.086072 20.5896 0.260169L37.6521 8.8548C38.4784 9.2698 39 10.1219 39 11.0501V36.5443Z" fill="#FEFCFB" />
-								</g>
-								<defs>
-									<clipPath id="clip0_831_321">
-										<rect width="39" height="39" fill="white" />
-									</clipPath>
-								</defs>
-							</svg>
-						}
-						else{
-										@link.Name
-						}
-					</a>
-				</li>
-			}
-		</ul>
-	}
-	<script src="/assets/lib/jquery/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
-	<script src="/assets/lib/bootstrap-5.3.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-				<script src="/assets/lib/unpkg.com_aos@2.3.1_dist_aos.js" crossorigin="anonymous"></script>
-				<script src="/assets/lib/video.js" crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-						AOS.init({
-							duration: 1000
-						});
-			const header = document.getElementById("header");
-			const toggleClass = "is-sticky";
-			window.addEventListener("scroll", () => {
-				const currentScroll = window.pageYOffset;
-				if (currentScroll > 170) {
-					header.classList.add(toggleClass);
-				} else {
-					header.classList.remove(toggleClass);
-				}
-			});
-		});
-	</script>
-	@RenderSection("Scripts", required: false)
+  <partial name="Header">
+    <partial name="Banner">
+      @RenderBody()
+      <partial name="Footer">
+        @if (productUrl != null && productUrl.Count() > 0)
+        {
+          <ul class="product-url">
+            @foreach (var item in productUrl)
+            {
+              var link = item.Content.Value<Link>("link");
+              var color = item.Content.Value("color");
+              <li style="--productColor:#@color" class="@(link.Url == Model.Url()?"active":"")">
+                <a href="@link.Url" target="@link.Target" class="">
+                  @if (link.Url == Model.Url())
+                  {
+                    <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
+                      <g clip-path="url(#clip0_831_321)">
+                        <path d="M39 36.5443C39 37.8998 37.908 38.9999 36.5625 38.9999H2.4375C1.092 38.9999 0 37.8998 0 36.5443V11.0501C0 10.1194 0.521625 9.2698 1.34794 8.8548L18.4104 0.260169C19.0978 -0.086072 19.9046 -0.086072 20.5896 0.260169L37.6521 8.8548C38.4784 9.2698 39 10.1219 39 11.0501V36.5443Z" fill="#FEFCFB" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_831_321">
+                          <rect width="39" height="39" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  }
+                  else
+                  {
+                    @link.Name
+                  }
+                </a>
+              </li>
+            }
+          </ul>
+        }
+        <script src="/assets/lib/jquery/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+        <script src="/assets/lib/bootstrap-5.3.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="/assets/lib/unpkg.com_aos@2.3.1_dist_aos.js" crossorigin="anonymous"></script>
+        <script src="/assets/lib/video.js" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+          $(document).ready(function () {
+            AOS.init({
+              duration: 1000
+            });
+            const header = document.getElementById("header");
+            const toggleClass = "is-sticky";
+            window.addEventListener("scroll", () => {
+              const currentScroll = window.pageYOffset;
+              if (currentScroll > 170) {
+                header.classList.add(toggleClass);
+              } else {
+                header.classList.remove(toggleClass);
+              }
+            });
+          });
+        </script>
+        @RenderSection("Scripts", required: false)
 </body>
 </html>
