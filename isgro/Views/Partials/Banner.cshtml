@@ -36,10 +36,11 @@
                     }
                     else
                     {
-                        <video class="banner_video">
-                            <source src="@bannerMobileMedia.Url()">
-                            Your browser does not support the video tag.
+                        <video class="banner_video" autoplay loop muted>
+                          <source src="@bannerMobileMedia.Url()" type="video/mp4">
+                          Your browser does not support the video tag.
                         </video>
+
                         <button type="button" class="play">
                             <img src="~/assets/icons/play.svg" />
                         </button>

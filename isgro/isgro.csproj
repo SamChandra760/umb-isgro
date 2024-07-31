@@ -4,6 +4,88 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\media\0s5hj4xx\bildschirmfoto-2024-07-02-um-122006-1.png" />
+    <Content Include="wwwroot\media\0v4j5ls1\ebene_1-2.png" />
+    <Content Include="wwwroot\media\0vkpyesy\bildschirmfoto-2024-07-02-um-121854-1.png" />
+    <Content Include="wwwroot\media\0xtdspmd\artwork.png" />
+    <Content Include="wwwroot\media\1majfil4\hopp-job.png" />
+    <Content Include="wwwroot\media\1wsejeq3\icon_m.png" />
+    <Content Include="wwwroot\media\213bi144\home-banner.png" />
+    <Content Include="wwwroot\media\24zatba4\layer_1.png" />
+    <Content Include="wwwroot\media\2i5jog2w\bildschirmfoto-2024-07-02-um-121912-1.png" />
+    <Content Include="wwwroot\media\2zullcup\image-5.png" />
+    <Content Include="wwwroot\media\45qa254z\rectangle-1.png" />
+    <Content Include="wwwroot\media\4mhl0rit\bildschirmfoto-2024-07-02-um-121957-1.png" />
+    <Content Include="wwwroot\media\4ncgjbcv\adobestock_159831921-1.png" />
+    <Content Include="wwwroot\media\4r0dfmux\bildschirmfoto-2024-07-02-um-121916-1.png" />
+    <Content Include="wwwroot\media\cyjlf5eu\v1_1_arbeitsbeispiele_lr4-1.png" />
+    <Content Include="wwwroot\media\ekabuky2\ebene_1-1.png" />
+    <Content Include="wwwroot\media\eohcgihu\image-1.png" />
+    <Content Include="wwwroot\media\g0ipp4sn\file_example_mp4_1920_18mg.mp4" />
+    <Content Include="wwwroot\media\gvjpaaz0\bildschirmfoto-2024-07-02-um-121849-1.png" />
+    <Content Include="wwwroot\media\h1shmhdt\bildschirmfoto-2024-07-02-um-121924-1.png" />
+    <Content Include="wwwroot\media\i3mdziwb\dirigentin-1.png" />
+    <Content Include="wwwroot\media\imxbynil\ebene_1-3.png" />
+    <Content Include="wwwroot\media\injbmd1v\bildschirmfoto-2024-07-02-um-121935-1.png" />
+    <Content Include="wwwroot\media\jovhz3xw\v1_1_arbeitsbeispiele_lr3-1.png" />
+    <Content Include="wwwroot\media\kw4fhymx\bildschirmfoto-2024-07-02-um-121951-1.png" />
+    <Content Include="wwwroot\media\kzjhfywo\v1_1_arbeitsbeispiele_lr5-1.png" />
+    <Content Include="wwwroot\media\ldbduypn\v1_1_arbeitsbeispiele_lr2-1.png" />
+    <Content Include="wwwroot\media\le5jfu5l\image-4.png" />
+    <Content Include="wwwroot\media\m5chl34y\hermes_cmyk.png" />
+    <Content Include="wwwroot\media\machkatz\component-4.png" />
+    <Content Include="wwwroot\media\ndohqzwc\bildschirmfoto-2024-07-02-um-121931-1.png" />
+    <Content Include="wwwroot\media\omxfit5j\image-7.png" />
+    <Content Include="wwwroot\media\pgimiwfw\prof-dr-dietrich-groenemeyer_tag-des-thymians_hermes-arzneimittel-1.png" />
+    <Content Include="wwwroot\media\pxonxh2z\signet.png" />
+    <Content Include="wwwroot\media\qucokji0\image-3.png" />
+    <Content Include="wwwroot\media\s43pxjwg\titel-1.png" />
+    <Content Include="wwwroot\media\u1kepuhk\bildschirmfoto-2024-07-02-um-121947-1.png" />
+    <Content Include="wwwroot\media\ukqjnaum\v1_1_arbeitsbeispiele_lr6-1.png" />
+    <Content Include="wwwroot\media\vr4lttjm\v1_1_arbeitsbeispiele_lr4-2.png" />
+    <Content Include="wwwroot\media\xqul20ic\ebene_1.png" />
+    <Content Include="wwwroot\media\xuhfjky1\rz_bio_direct_tanzen_215x140_psr_sc_std_v2_m1-1.png" />
+    <Content Include="wwwroot\media\xv2fx154\bildschirmfoto-2024-07-02-um-122011-1.png" />
+    <Content Include="wwwroot\media\yzuoqolz\ebene_1-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\media\0jdgujon\ebene_1.svg" />
+    <None Include="wwwroot\media\1sqj4rbi\group-7-1.svg" />
+    <None Include="wwwroot\media\2g4imgn4\icon_w.svg" />
+    <None Include="wwwroot\media\2iibsjyc\ebene_1-4.svg" />
+    <None Include="wwwroot\media\2ybpquiv\isgro-markenraum.svg" />
+    <None Include="wwwroot\media\2zzlef5v\ebene_1.svg" />
+    <None Include="wwwroot\media\3p1jdrpi\group-7-1.svg" />
+    <None Include="wwwroot\media\4i0l3vmc\ebene_1-2.svg" />
+    <None Include="wwwroot\media\4z0gqz0v\icon_t.svg" />
+    <None Include="wwwroot\media\50roiv0m\bubble.svg" />
+    <None Include="wwwroot\media\5onjwxaa\puzzle.svg" />
+    <None Include="wwwroot\media\aellpvsv\ebene_1-3.svg" />
+    <None Include="wwwroot\media\ahvj0cne\isgro.svg" />
+    <None Include="wwwroot\media\akyb33xy\isgro-wissensraum.svg" />
+    <None Include="wwwroot\media\avtpsrsk\ebene_1-6.svg" />
+    <None Include="wwwroot\media\cevglz3f\isgro-themenraum.svg" />
+    <None Include="wwwroot\media\dm4fekry\ebene_1-5.svg" />
+    <None Include="wwwroot\media\ewznbjll\arrow-bottom-right.svg" />
+    <None Include="wwwroot\media\gqdnoxbl\icon_7.svg" />
+    <None Include="wwwroot\media\h01fg1zn\ebene_1-8.svg" />
+    <None Include="wwwroot\media\h4maltqt\isgro-themenraum.svg" />
+    <None Include="wwwroot\media\hh5di531\ebene_1-1.svg" />
+    <None Include="wwwroot\media\jydj5ww3\isgro-markenraum.svg" />
+    <None Include="wwwroot\media\lk1jzip1\icon_7-1.svg" />
+    <None Include="wwwroot\media\nnddu5oj\person.svg" />
+    <None Include="wwwroot\media\pkanjsr3\heart-white.svg" />
+    <None Include="wwwroot\media\q3zkvo13\ebene_1-7.svg" />
+    <None Include="wwwroot\media\rf2lajyl\ebene_1-9.svg" />
+    <None Include="wwwroot\media\ssfjzx0y\auszeichnung.svg" />
+    <None Include="wwwroot\media\terfxtgv\icon_7.svg" />
+    <None Include="wwwroot\media\v3ebusf4\ebene_1-1.svg" />
+    <None Include="wwwroot\media\vdvlege3\group-7.svg" />
+    <None Include="wwwroot\media\x1uf1c4j\gear.svg" />
+    <None Include="wwwroot\media\xs1d3zmr\group-7.svg" />
+    <None Include="wwwroot\media\xsrgn55t\isgro-wissensraum.svg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="13.3.0" />
