@@ -1,9 +1,12 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @{
     var site = Model.Root();
     var siteLogo = site.Value<IPublishedContent>("siteLogo");
     var pageLogo = Model.Value<IPublishedContent>("ps_headerLogo");
+    var mainNavs = site.Value<IEnumerable<Link>>("mainMenu");
+    var secondaryMainNavs = site.Value<IEnumerable<Link>>("secondaryMainMenu");
 }
 <header id="header">
     <nav class="navbar sticky-top">
@@ -18,9 +21,37 @@
                     <img src="@siteLogo?.Url()" class="logo img-fluid" alt="logo" />
                 }
             </a>
-            <a class="navbar-toggler" role="button" aria-controls="offcanvasMenu">
-                <img src="/assets/icons/menu.svg" class="menu-icon img-fluid" alt="logo" />
+            <a class="navbar-toggler" role="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamberger-menu">
+                    <span class="first"></span>
+                    <span class="middel"></span>
+                    <span class="last"></span>
+                </div>
             </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                @if (mainNavs != null && mainNavs.Count() > 0)
+                {
+                        <ul class="navbar-nav primary-nav">
+                    @foreach (var mainNav in mainNavs)
+                    {
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="@mainNav.Url" target="@mainNav.Target">@mainNav.Name</a>
+                            </li>                    
+                        }
+                    </ul>
+                }
+                @if (secondaryMainNavs != null && secondaryMainNavs.Count() > 0)
+                {
+                        <ul class="navbar-nav secondary-nav">
+                    @foreach (var secondaryMainNav in secondaryMainNavs)
+                    {
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="@secondaryMainNav.Url" target="@secondaryMainNav.Target">@secondaryMainNav.Name</a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
         </div>
     </nav>
 </header>

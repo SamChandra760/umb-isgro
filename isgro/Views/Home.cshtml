@@ -174,10 +174,11 @@
               @foreach (var logo in wcLogos)
               {
                 var li = logo.Content.Value<IPublishedContent>("nal_logo");
+                                var link = logo.Content.Value<Link>("link");
                 <div class="logo-item">
                   <p data-aos="fade-up">@logo.Content.Value("nal_name")</p>
                   <img src="/assets/icons/arrow-down.svg" alt="" class="l-icon" data-aos="fade-down" />
-                  <img src="@li?.Url()" alt="" class="logo-img" />
+                    <a href="@link?.Url" target="@link?.Target"><img src="@li?.Url()" alt="" class="logo-img" /></a>
                 </div>
               }
             </div>
@@ -312,21 +313,41 @@
         }
         @if (cmpLogos != null && cmpLogos.Count() > 0)
         {
-          <div class="cmp-logos left">
+          <div class="cmp-logos">
+            <div class="left">
             @foreach (var logo in cmpLogos)
             {
               <div class="logo">
                 <img src="@logo.Url()" alt="" />
               </div>
             }
+            </div>
+                        <div class="left">
+                            @foreach (var logo in cmpLogos)
+                            {
+                                <div class="logo">
+                                    <img src="@logo.Url()" alt="" />
+                                </div>
+                            }
+                        </div>
           </div>
-          <div class="cmp-logos right">
+          <div class="cmp-logos">
+          <div class=right>
             @foreach (var logo in cmpLogos)
             {
               <div class="logo">
                 <img src="@logo.Url()" alt="" />
               </div>
             }
+                        </div>
+                        <div class=right>
+                            @foreach (var logo in cmpLogos)
+                            {
+                                <div class="logo">
+                                    <img src="@logo.Url()" alt="" />
+                                </div>
+                            }
+                        </div>
           </div>
         }
       </section>

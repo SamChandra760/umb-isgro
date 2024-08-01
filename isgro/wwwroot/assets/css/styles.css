@@ -29,20 +29,82 @@
 html,body{
     overflow-x:hidden;
 }
+    html:has(.navbar-collapse.collapse.show), body:has(.navbar-collapse.collapse.show) {
+        overflow-y: hidden;
+    }
 img{max-width:100%;}
 .bg-img {
     background-position: center !important;
     background-size: cover !important;
     background-repeat:no-repeat;
 }
-
-#header {
+.navbar-toggler {
+border:none;
+}
+    .hamberger-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+    .hamberger-menu span {
+        width: 64px;
+        height: 6px;
+        background: var(--background);
+        border-radius: 4px;
+        transform-origin: 6.5px 50%;
+        transition: all 100ms ease;
+    }
+#header:has(.navbar-collapse.collapse.show) .hamberger-menu span.middel {
+    opacity:0;
+}
+#header:has(.navbar-collapse.collapse.show) .hamberger-menu span.first {
+    transform: rotate(45deg);
+}
+#header:has(.navbar-collapse.collapse.show) .hamberger-menu span.last {
+    transform:rotate(-45deg);
+}
+.navbar-collapse {
+    border-top: 1px solid #ffffff5e;
+    margin-top: 8px;
+    transition: all 100ms ease;
+    background: var(--dark-orange);
+}
+    .navbar-collapse .primary-nav{
+        margin-bottom:2rem;
+    }
+    .navbar-collapse .primary-nav a {
+        --bs-nav-link-color: var(--background);
+        --bs-nav-link-hover-color: var(--background);
+        font-size: 64px;
+        font-weight: 500;
+        line-height: 64px;
+        letter-spacing: -0.64px;
+        text-transform: uppercase;
+        font-family: var(--clashrotesk-variable);
+    }
+    .navbar-collapse .secondary-nav a {
+        --bs-nav-link-color: var(--background);
+        --bs-nav-link-hover-color: var(--background);
+        font-size: 32px;
+        line-height: 32px;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-family: var(--bs-body-font-family);
+    }
+    #header {
     position: absolute;
     top: 0;
     right: 0;
-    left: 0
+    left: 0;
 }
-#header .navbar {
+    #header:has(.navbar-collapse.collapse.show) {
+        background: var(--dark-orange);
+        z-index: 11;
+        min-height: 100vh;
+        max-height: 100vh;
+        overflow-y:auto;
+    }
+    #header .navbar {
     --bs-navbar-padding-y: 2.5rem;
 }
     #header.is-sticky {
@@ -338,6 +400,16 @@ max-width:660px;
         --heading-heighlight-font-size: 2.5rem;
         --heading-line-height: 2.5rem;
     }
+    .navbar-collapse .primary-nav a {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .navbar-collapse .secondary-nav a {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
     #header .navbar {
         --bs-navbar-padding-y: 1.5rem;
     }

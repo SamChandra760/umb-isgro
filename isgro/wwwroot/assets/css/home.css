@@ -233,19 +233,27 @@
     }
 .cmp_section .cmp-logos {
     display: flex;
-    align-items: center;
     flex-wrap: nowrap;
-    column-gap: 2rem;
-    min-width: 100%;
-    min-width: max-content;
-    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    gap: 2rem;
 }
-    .cmp_section .cmp-logos.left {
+    .cmp_section .cmp-logos .left {
         animation: slideLeft 30s linear infinite;
-        margin-bottom:3rem;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width:100vw;
+        gap: 2rem;       
     }
-    .cmp_section .cmp-logos.right {
+    .cmp_section .cmp-logos .right {
         animation: slideRight 30s linear infinite;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 100vw;
+        gap: 2rem;
     }
     .cmp_section .cmp-logos .logo {
         min-width:max-content;
@@ -339,11 +347,11 @@
 }
 @keyframes slideRight {
     from {
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(-100%, 0, 0);
     }
 
     to {
-        transform: translate3d(100%, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
