@@ -1,0 +1,32 @@
+﻿@using isgro.Enumerations
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<SingleImage>>
+
+@{
+    var settings = Model.Settings.SafeCast<SingleImageSettings>();
+    var spacing = settings?.ParseSpacingSettings();
+    var visibility = settings?.ParseVisibilitySettings(DisplayType.Flex);
+    var verticalAlignment = settings?.ParseVerticalAlignment();
+
+    var image = Model.Content.Image;
+    string? altTag = Model.Content?.AltTag;
+    string? caption = Model.Content?.ImageCaption;
+
+    if (image != null)
+    {        
+        <div class="single-image-wrapper @spacing @visibility @verticalAlignment">
+            <figure>
+                <img src="@image.MediaUrl()" alt="@altTag" class="w-100" />
+                @if (caption != "")
+                {
+                    <figcaption>@caption</figcaption>
+                }
+            </figure>
+        </div>
+    }
+    else
+    {
+        <p>Missing image</p>
+    }
+}

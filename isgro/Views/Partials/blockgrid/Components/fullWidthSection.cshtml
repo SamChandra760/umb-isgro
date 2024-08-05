@@ -1,0 +1,18 @@
+﻿@using isgro.Helpers
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+
+@* Render the block areas *@
+@{
+    var settings = Model.Settings.SafeCast<CommonSettings>();
+    var spacing = settings.ParseSpacingSettings();
+    var bg = settings?.ParseBackgroundSettings();
+}
+
+@* Render the block areas *@
+<div class="section-wrapper" style="@bg">
+    <div class="nwb-container">
+        <div class="@spacing">
+            @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem<TwoCardsWithGap>>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@{
+    var model = Model;
+    var twoCardsWithGap = Model.Content.SafeCast<TwoCardsWithGap>();
+    var settings = Model.Settings.SafeCast<CardSettings>();
+    bool hasHeadline = !string.IsNullOrEmpty(twoCardsWithGap.Headline);
+}
+
+
+<div>
+    <div class="grid-item gap-5 my-5 @(settings.IsCard? "card p-4 border-0" : model.Areas.Count() > 0 ? "py-4 mx-5" : string.Empty) 
+         @(twoCardsWithGap is not null && !string.IsNullOrEmpty(twoCardsWithGap.Headline) ? "has-headline" : string.Empty)"
+         @(string.IsNullOrEmpty(settings?.EntranceAnimation) ? string.Empty : Html.Raw($"data-animate=\"{settings?.EntranceAnimation}\""))
+         style="--grid-column-span: @(model.ColumnSpan); @(settings.IsCard ? $"--bs-card-bg: #{settings?.HintergrundFarbe}" : string.Empty);" >
+        
+        @if (hasHeadline)
+        {
+            <h2 class="headline-bubble dark-bubble pe-none" style="--headline-bubble-fontSize: 18px; z-index: 2">@twoCardsWithGap.Headline </h2>
+        } 
+        
+        @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    </div>
+</div>

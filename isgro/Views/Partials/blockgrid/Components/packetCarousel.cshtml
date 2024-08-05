@@ -1,0 +1,48 @@
+﻿@using isgro.Extensions
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<PacketCarousel>>
+
+@if (Model.Content.Products?.Any() == true)
+{
+    <div class="row">
+        <div class="col-12 mb-6">
+            <div class="owl-carousel carousel-widget product-carousel"
+                 data-margin="20"
+                 data-stage-padding="0"
+                 data-center="true"
+                 data-nav="true"
+                 data-pagi="false"
+                 data-loop="true"
+                 data-items="1"
+                 data-items-md="3">
+                @await Html.GetBlockListHtmlAsync(Model.Content.Products)
+            </div>
+        </div>
+        @if (Model.Content.CompareButton is not null)
+        {
+            <div class="col-12 text-center">
+                <div class="text-center product-button-wrapper">
+                    <button type="button" class="nwb-btn-common nwb-btn-common--large">
+                        <a class="text-dark"
+                           target="@Model.Content.CompareButton.Target"
+                           href="@Model.Content.CompareButton.GetUrlWithProtocol()">
+                            @Model.Content.CompareButton.Name
+                        </a>
+                    </button>
+                </div>
+            </div>
+        }
+
+        @if (Model.Content.Subjects?.Any() == true)
+        {
+            <div class="col-12 mt-lg-6 mt-5">
+                <div class="text-center mb-3 subject-text">
+                    @Model.Content.SubjectsText
+                </div>
+                <div class="subject-wrapper">
+                    @await Html.GetBlockListHtmlAsync(Model.Content.Subjects)
+                </div>
+            </div>
+        }
+
+    </div>
+}

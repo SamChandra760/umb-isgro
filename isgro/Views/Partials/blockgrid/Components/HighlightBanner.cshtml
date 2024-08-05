@@ -1,0 +1,44 @@
+﻿@using isgro.Enumerations
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<HighlightBanner>>
+
+@{
+    var settings = Model.Settings.SafeCast<HighlightBannerSettings>();
+    var visibility = settings?.ParseVisibilitySettings(DisplayType.Flex);
+    string bg = settings?.ParseBackgroundSettings();
+
+    string boxPosition = "top-left";
+
+    switch(settings?.BoxAlignment) 
+    {
+        case "links unten":        
+            boxPosition = "bottom-left";
+            break;
+        case "rechts oben":
+            boxPosition = "top-right";       
+            break;
+        case "rechts unten":
+            boxPosition = "bottom-right";
+            break;
+        default:        
+            break;
+    }
+    
+}
+
+<div class="highlightBanner-wrapper @visibility" style="@bg">
+    <div class="highlightBanner-box-container @boxPosition">
+        <span class="box-subtitle">@Model.Content.BoxSubtitle</span>
+        <h3 class="box-title">@Model.Content.BoxTitle</h3>
+        <div class="box-text">
+           @Model.Content.BoxText
+       </div>
+        @if (Model.Content.BoxCta != null)
+        {
+            <div class="box-cta mt-3 pb-3 text-end">
+                <a class="nwb-btn-common nwb-btn-common--large" href="@Model.Content?.BoxCta?.Url">@Model.Content?.BoxCta?.Name</a>
+            </div>
+       }
+   </div>
+</div>

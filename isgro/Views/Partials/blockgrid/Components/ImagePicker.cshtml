@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem<ImagePicker>>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@{
+    var image = Model.Content.Image;
+    if (image != null)
+    {
+        <figure>
+            <img src="@image.MediaUrl()" style="object-fit:cover; width:100%; height:100%;" />
+            @if(image.Value("photoCredits") != "")
+            {
+                <figcaption>@image.Value("photoCredits")</figcaption>
+            }
+        </figure>
+        
+    } else {
+        <p>Missing image</p>
+    }
+}

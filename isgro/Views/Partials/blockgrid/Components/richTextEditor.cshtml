@@ -1,0 +1,16 @@
+﻿@using isgro.Enumerations
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Strings
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<RichTextEditor>>
+@{
+    IHtmlEncodedString? text = Model.Content.Text;
+    var settings = Model.Settings.SafeCast<RichTextSettings>();
+    var spacing = settings?.ParseSpacingSettings();
+    var bg = settings?.ParseBackgroundSettings();
+    var visibility = settings?.ParseVisibilitySettings(DisplayType.Flex);
+    var verticalAlignment = settings?.ParseVerticalAlignment();
+}
+
+<div class="rich-text-wrapper @spacing @visibility @verticalAlignment" style="@bg">
+    @text
+</div>

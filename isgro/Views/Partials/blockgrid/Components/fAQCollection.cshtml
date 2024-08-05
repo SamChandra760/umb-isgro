@@ -1,0 +1,70 @@
+﻿@using isgro.Enumerations
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FAqcollection>>
+@{
+    var settings = Model.Settings.SafeCast<FAqsettings>();
+    var spacing = settings?.ParseSpacingSettings();
+    var visibility = settings?.ParseVisibilitySettings(DisplayType.Flex);
+}
+
+<div class="faq-collection-wrapper @spacing @visibility">
+    @* Render the block areas *@
+    <div class="faq-topic-carousel owl-carousel carousel-widget mb-5" data-margin-lg="120" data-auto-width="true"
+         data-stage-padding="0" data-lazyload="true" data-loop="false" data-pagi="true"
+         data-items="1" data-items-md="3" data-items-lg="5" data-items-xl="5">      
+        @foreach(BlockListItem topicBlocklist in Model?.Content?.Topics)
+        {
+            FAqtopic? topic = topicBlocklist?.Content?.SafeCast<FAqtopic>();
+            string active = (Model?.Content?.Topics.IndexOf(topicBlocklist) == 0) ? "active" : "";
+            <div class="oc-item">
+                <div id="wrapper_topic_@topic?.Key" class="faq-topic-card @active" style="background-color: @topic?.BackgroundColor ;" data-cardkey="topic_@topic?.Key" onclick="showFAQContent('topic_@topic?.Key')">
+                    <div class="faq-topic-img-wrapper">
+                        <img src="@topic?.Icon?.Url()" alt="@topic?.Topic" />
+                    </div>
+                    <h5 class="fs-6 fw-medium mt-3 mb-0"> @topic?.Topic</h5>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    @foreach(BlockListItem topicBlocklist in Model?.Content?.Topics)
+    {
+        FAqtopic? topic = topicBlocklist?.Content?.SafeCast<FAqtopic>();
+        string display = (Model?.Content?.Topics.IndexOf(topicBlocklist) == 0) ? "display:block" : "display:none";
+
+        <div id="topic_@topic?.Key" class="faq-topic-wrapper" style="@display">
+            @foreach(BlockListItem faqCardBlocklist in topic?.Faqlist)
+            {
+                FAqcard? faqCard = faqCardBlocklist?.Content?.SafeCast<FAqcard>();
+                
+                    <div class="toggle mb-0">
+                    <div class="toggle-header flex-row-reverse">
+                        <div class="toggle-icon">
+                            <i class="toggle-closed uil uil-plus"></i>
+                            <i class="toggle-open uil uil-minus"></i>
+                        </div>
+                        <div class="toggle-title fw-medium">
+                            @faqCard?.Title
+                        </div>
+                    </div>
+                    <div class="toggle-content" style="display: none;">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question">
+                                @faqCard?.Question
+                            </div>
+                        </div>
+
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                @faqCard?.Answer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+</div>

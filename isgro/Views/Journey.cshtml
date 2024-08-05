@@ -6,6 +6,10 @@
   Layout = "Master.cshtml";
   var pageColor = Model.Value("ps_pagePrimaryColor");
 }
+
+@await Html.GetBlockGridHtmlAsync(Model.Value<BlockGridModel>("contentBlocks"))
+
+
 @{
   var ds_heading = Model.Value<BlockGridModel>("ds_heading").FirstOrDefault();
   var ds_content = Model.Value<BlockGridModel>("ds_content");

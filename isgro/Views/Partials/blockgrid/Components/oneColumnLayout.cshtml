@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem<OneColumnLayout>>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@{
+    var content = Model.Content.SafeCast<OneColumnLayout>();
+    var settings = Model.Settings.SafeCast<RowSettings>();
+    string mb = (settings?.RowGap != 0) ?  "margin-bottom:" + settings.RowGap + "px" : "";
+}
+
+
+    <div class="umb-block-grid__layout-item" style="--umb-block-grid--column-gap: @(settings.ColumnGap + "px"); @mb" >
+        @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    </div>

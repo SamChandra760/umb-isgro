@@ -1,0 +1,17 @@
+﻿@using isgro.Enumerations
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Quote>>
+
+@{
+    var settings = Model.Settings.SafeCast<QuoteSettings>();
+    var spacing = settings?.ParseSpacingSettings();
+    var visibility = settings?.ParseVisibilitySettings(DisplayType.Flex);
+    var verticalAlignment = settings?.ParseVerticalAlignment();
+}
+
+<div class="quote-text-wrapper @spacing @visibility @verticalAlignment">
+    <span class="quotationmark"><i class="fa-solid fa-quote-right"></i></span>
+    @Model.Content.Quotetext
+    <span class="author">@Model.Content.Author</span>
+</div>

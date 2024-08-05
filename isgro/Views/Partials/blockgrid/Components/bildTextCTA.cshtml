@@ -1,0 +1,34 @@
+﻿@using isgro.Enumerations
+@using isgro.Extensions
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<BildTextCta>>
+
+@{
+    var settings = Model.Settings.SafeCast<BildTextCtasettings>();
+    var visibility = settings?.ParseVisibilitySettings(DisplayType.Flex);
+}
+
+<div class="bild-text-cta-wrapper @visibility">
+    
+    @if(Model.Content?.HeaderImage != null)
+    {
+        <img data-src="@Model.Content.HeaderImage.Url()" alt="@Model.Content.HeaderImage.Name" class="lazy" />
+    }
+
+    <div class="heading-block border-bottom-0 mt-5 mb-3">        
+        <h4>@Model.Content?.Title</h4>
+        <span class="after-heading">@Model.Content?.Subtitle</span>
+    </div>
+    <div class="bild-text-cta-text">
+        @Model.Content?.Text
+    </div>
+
+        @if (Model.Content?.CtaButton != null)
+        {
+            <div class="box-cta mt-3 pb-3">
+                <a class="nwb-btn-common nwb-btn-common" href="@Model.Content?.CtaButton?.Url">@Model.Content?.CtaButton?.Name</a>
+            </div>
+        }
+    </div>
+

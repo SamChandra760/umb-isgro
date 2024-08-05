@@ -1,0 +1,8 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem<Rte>>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@ViewBag?.TimerStart
+
+<div class="rte-content">
+    @Model.Content.RichTextContent
+</div>

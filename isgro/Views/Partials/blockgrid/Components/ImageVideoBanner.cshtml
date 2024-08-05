@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ImageVideoBanner>>
+
+
+@if (Model?.Content?.Video == null)
+{
+	<section id="slider" class="slider-element min-vh-50 lazy" data-bg="@Model?.Content?.ImageBanner?.Url()"
+	style="background-position: center center; background-size: cover;">
+		<div class="slider-inner">
+		</div>
+	</section>
+}
+else
+{
+	<section id="slider" class="slider-element slider-parallax min-vh-50">
+		<div class="slider-inner">
+
+			<div class="video-wrap no-placeholder">
+				<video class="lazy" data-poster="@Model?.Content?.ImageBanner?.Url()" preload="auto" loop autoplay muted playsinline>
+					<source src='@Model?.Content?.Video.Url()' type='video/mp4'>					
+				</video>
+			</div>
+
+		</div>
+	</section>
+}

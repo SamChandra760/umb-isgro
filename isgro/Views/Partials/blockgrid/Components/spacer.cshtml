@@ -1,0 +1,15 @@
+﻿@using isgro.Enumerations
+@using isgro.Helpers
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Spacer>>
+
+@{
+    var visibility = Model.Settings.SafeCast<IVisibilitySettings>().ParseVisibilitySettings(DisplayType.Flex);
+    var width = Model.Content.Width == 0 ? "2px" : $"{Model.Content.Width}px";
+    var spacerColor = string.IsNullOrEmpty(Model.Content.Color) ? "transparent" : Model.Content.Color;
+}
+
+<div class="px-4 grid-spacer @visibility">
+    <div style="--spacer-color: @spacerColor; --spacer-width: @width">
+        
+    </div>
+</div>

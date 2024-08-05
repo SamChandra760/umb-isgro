@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<IconLinkList>>;
+@{
+    var content = Model.Content.SafeCast<IconLinkList>();
+}
+
+<div class="blockgrid-icon-link-list">
+    <div class="row">
+        @await Html.GetBlockListHtmlAsync(content?.IconList)
+    </div>
+</div>

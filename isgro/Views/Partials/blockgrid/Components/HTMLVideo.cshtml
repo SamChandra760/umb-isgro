@@ -1,0 +1,64 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<HTmlvideo>>
+@{
+	string? posterURL = Model.Content.Poster?.Url();
+	string? videoURL = Model.Content.Video?.Url();
+	string? externalSrc = Model.Content.ExternalVideoSource;
+}
+
+@if (externalSrc == "")
+{
+	<div class="video-facade position-relative" data-video-html='<video autoplay="true" class="d-block w-100" poster="@posterURL" preload="auto" controls><source src="@videoURL" type="video/mp4"></video>'>
+		<div class="video-facade-preview">
+			<img src="@posterURL" alt="@Model.Content.Poster?.Name" class="w-100">
+			<div class="bg-overlay">
+				<div class="bg-overlay-content dark">
+					<a href="#" class="overlay-trigger-icon size-lg op-ts op-07 bg-light text-dark" 
+					data-hover-animate="op-1" data-hover-animate-out="op-07"><i class="bi-play-fill fs-2 position-relative" style="left:1px"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="video-facade-content"></div>
+	</div>
+}
+else if (!String.IsNullOrEmpty(externalSrc) && externalSrc.ToLower().Contains("vimeo"))
+{
+	string vimeoID = externalSrc.Split('/').Last();
+
+	<!-- VIMEO -->
+	<div class="video-facade position-relative" data-confirm-text="Achtung - es wir ein Video von vimeo geladen und damit cookies von einem externen Dienstleister gesetzt. Möchten Sie fortfahren?"
+	data-video-html='<iframe src="https://player.vimeo.com/video/@vimeoID" width="500" height="281" allow="autoplay; fullscreen" allowfullscreen></iframe>'>
+		<div class="video-facade-preview">
+			<img src="@posterURL" alt="" class="w-100">
+			<div class="bg-overlay">
+				<div class="bg-overlay-content dark">
+					<a href="#" type="button" class="overlay-trigger-icon size-lg op-ts op-07 bg-light text-dark" data-hover-animate="op-1"
+					data-hover-animate-out="op-07"><i class="bi-play-fill fs-2 position-relative" style="left:1px"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="video-facade-content"></div>
+	</div>
+}
+else if (!String.IsNullOrEmpty(externalSrc) && externalSrc.ToLower().Contains("youtu"))
+{
+	string youtubeID = ExtractVideoIDHelper.GetYouTubeVideoIdFromUrl(externalSrc);
+
+	<!-- YOUTUBE -->
+	<div class="video-facade position-relative" data-confirm-text="Achtung - es wir ein Video von Youtube geladen und damit cookies von einem externen Dienstleister gesetzt. Möchten Sie fortfahren?"
+	data-video-html='<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/@youtubeID" allowfullscreen></iframe>'>
+	<div class="video-facade-preview">
+		<img src="@posterURL" alt="" class="w-100">
+		<div class="bg-overlay">
+			<div class="bg-overlay-content dark">
+				<a href="#" class="overlay-trigger-icon size-lg op-ts op-07 bg-light text-dark" data-hover-animate="op-1" 
+				data-hover-animate-out="op-07"><i class="bi-play-fill fs-2 position-relative" style="left:1px"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="video-facade-content"></div>
+	</div>
+}
+else
+{
+	<p>Unkown Video Format</p>
+}

@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem<FullwidthCard>>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@{
+    var model = Model;
+    var fullwidthCard = Model.Content.SafeCast<FullwidthCard>();
+    var settings = Model.Settings.SafeCast<CardSettings>();
+    bool hasHeadline = !string.IsNullOrEmpty(model.Content.Headline);
+}
+
+
+    <div class="grid-item @(settings.IsCard ? "card p-4 h-100 border-0" : model.Areas.Count() > 0 ? "py-4" : string.Empty) 
+         @(fullwidthCard is not null && !string.IsNullOrEmpty(fullwidthCard.Headline) ? "has-headline" : string.Empty)"
+         @(string.IsNullOrEmpty(settings?.EntranceAnimation) ? string.Empty : Html.Raw($"data-animate=\"{settings?.EntranceAnimation}\""))
+         style="--grid-column-span: @(model.ColumnSpan); @(settings.IsCard ? $"--bs-card-bg: #{settings?.HintergrundFarbe}" : string.Empty);">
+
+        @if (hasHeadline)
+        {
+            
+            <div class="col-12">
+            <h3 class="headline-bubble dark-bubble pe-none" style="--headline-bubble-fontSize: 18px; z-index: 2; @(settings.IsCard ? "margin-left:-1.5rem; margin-top:-1.5rem;" : model.ColumnSpan < 12 ? "margin-top:-1.5rem;" : !settings.IsCard ? "margin-top:-1.5rem;"  : string.Empty)">
+                    @fullwidthCard.Headline
+                </h3>
+            </div>
+        }
+
+        @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    </div>
+    

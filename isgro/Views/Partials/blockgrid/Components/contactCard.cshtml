@@ -1,0 +1,36 @@
+﻿@using isgro.Enumerations
+@using isgro.Extensions
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContactCard>>
+
+
+@{
+    IEnumerable<IPublishedContent>? contacts = Model.Content?.ContactChosen;
+
+    if (contacts != null)
+    {
+        foreach (Contact contact in contacts)
+        {
+            <div class="team mb-5">
+                <div class="team-image">
+                    <img src="@contact.Image.Url()" alt="@contact.Name" class="rounded-6">
+                </div>
+                <div class="team-desc">
+                    <div class="team-title"><h4>@contact.Name</h4><span>
+                    @contact.Company<br />
+                    @contact.Section</span></div>
+                    <div class="entry-meta mt-3">
+                        <ul class="justify-content-center">
+                            <li><i class="bi-envelope" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="E-Mail"></i> <a href="mailto:@contact.EMail">@contact.EMail</a></li>
+                            <li><i class="fa-solid fa-phone" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Telefon"></i> <a href="tel:@contact.Phone">@contact.Phone</a></li>
+                            <li> <i class="fa-solid fa-fax" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Fax"></i> <a>@contact.Fax</a></li>
+                        </ul>
+                    </div>                    
+                </div>
+            </div>
+        }
+    }
+}
+
+

@@ -1,0 +1,30 @@
+﻿@using isgro.Enumerations
+@using isgro.Extensions
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Fancybox>>
+
+
+@{
+    int? countImages = (Model.Content?.Images != null) ? Model.Content?.Images.Count() : 0;
+}
+
+<div class="fancybox-wrapper">
+    <a href="@Model.Content?.PreviewImage?.Url()" data-fancybox="gallery" data-caption="Caption #1">
+        <img data-src="@Model.Content?.PreviewImage?.Url()" class="lazy" />
+    </a>
+
+    <div class="d-none">
+        @foreach(IPublishedContent img in Model.Content?.Images)
+        {
+            <a href="@img.Url()" data-fancybox="gallery" data-caption="Caption #2">
+                <img src="@img.Url()" />
+            </a>
+        }
+    </div>
+
+    <div class="fancybox-infobox">
+        <i class="far fa-images"></i> Bilderstrecke: @countImages Fotos
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Carousel>>;
+
+@* Render the block areas *@
+<div class="owl-carousel events-carousel carousel-widget block-grid-carousel" data-margin="75"
+     data-stage-padding="60" data-lazyload="true" data-loop="true" data-pagi="true"
+     data-items="1" data-items-lg="1" data-items-xl="1">
+
+    @await Html.GetBlockListHtmlAsync(Model.Content.Elements)
+</div>

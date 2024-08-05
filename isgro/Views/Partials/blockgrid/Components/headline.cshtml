@@ -1,0 +1,44 @@
+﻿@using isgro.Enumerations
+@using isgro.Extensions
+@using isgro.Helpers
+@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Headline>>
+
+
+@{
+    var text = new HtmlString(Model.Content.Text);
+    var fontSize = Model.Content.GetHeadlineSizes();
+    var textAlignment = BlockGridSettingsHelper.GetTextAlignment(Model.Content.TextAlign);
+    FontWeight fontWeight = Model.Content.FontWeight == 0 ? FontWeight.Medium : Model.Content.FontWeight;
+    var spacing = Model.Settings.SafeCast<IGapSettings>().ParseSpacingSettings();
+    Link? link = Model.Content.Link;
+    var styles = Model.Content.ParseHeadlineStyle();
+    var hasBorder = Model.Content.Border ? "headline-border" : null;
+}
+
+
+@if (string.IsNullOrEmpty(Model.Content.Text) == false)
+{
+    <div class="heading-wrapper">
+        <div class="heading @hasBorder @spacing @textAlignment" style="@styles">
+            @{
+                string element = link is null
+                    ? text.ToString()
+                    : $"<a target='{link.Target}' href='{link.GetUrlWithProtocol()}'>{text}</a>";
+
+                string headingTag = Model.Content.HeadlineType switch
+                {
+                    Headings.H1 => "h1",
+                    Headings.H2 => "h2",
+                    Headings.H3 => "h3",
+                    Headings.H4 => "h4",
+                    Headings.H5 => "h5",
+                    _ => "h6",
+                };
+
+                string result = $"<{headingTag} style='{fontSize}'>{element}</{headingTag}>";
+            }
+            @Html.Raw(result)
+        </div>
+    </div>
+}
