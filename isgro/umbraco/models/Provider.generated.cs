@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Anbieter</summary>
 	[PublishedModel("provider")]
-	public partial class Provider : MasterTools, IOpenGraph, ISEO
+	public partial class Provider : MasterTools, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -58,34 +58,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string BusinessModel => this.Value<string>(_publishedValueFallback, "businessModel");
 
 		///<summary>
-		/// Änderungen Partnerschaft: Zeigt an ob NWB tätig werden muss nachdem ein Anbieter heruntergestuft worden ist.
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[ImplementPropertyType("businessModelChange")]
-		public virtual bool BusinessModelChange => this.Value<bool>(_publishedValueFallback, "businessModelChange");
-
-		///<summary>
 		/// Anbieter Kontakt Email: Wird unter anderem benutzt, um den Anbieter über eine Herunterstufung des Produkts zu informieren.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("contactEmail")]
 		public virtual string ContactEmail => this.Value<string>(_publishedValueFallback, "contactEmail");
-
-		///<summary>
-		/// Anzahl Mitarbeiter
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("employees")]
-		public virtual string Employees => this.Value<string>(_publishedValueFallback, "employees");
-
-		///<summary>
-		/// Gründungsdatum
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[ImplementPropertyType("foundingDate")]
-		public virtual global::System.DateTime FoundingDate => this.Value<global::System.DateTime>(_publishedValueFallback, "foundingDate");
 
 		///<summary>
 		/// Beschreibung
@@ -118,14 +96,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Link LinkedInUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "linkedInUrl");
 
 		///<summary>
-		/// Standorte
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("locations")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> Locations => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "locations");
-
-		///<summary>
 		/// Media Ordner Verweis: Wird beim ersten Speichern automatisch befüllt
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
@@ -140,28 +110,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual int OrderID => this.Value<int>(_publishedValueFallback, "orderID");
 
 		///<summary>
-		/// Anbietername: max. 35 Zeichen
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("providerName")]
-		public virtual string ProviderName => this.Value<string>(_publishedValueFallback, "providerName");
-
-		///<summary>
 		/// Anbieter Url
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("providerUrl")]
 		public virtual global::Umbraco.Cms.Core.Models.Link ProviderUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "providerUrl");
-
-		///<summary>
-		/// Kurzbeschreibung
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("shortDescription")]
-		public virtual string ShortDescription => this.Value<string>(_publishedValueFallback, "shortDescription");
 
 		///<summary>
 		/// Webprodukt ID
@@ -185,46 +139,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("youtubeUrl")]
 		public virtual global::Umbraco.Cms.Core.Models.Link YoutubeUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "youtubeUrl");
-
-		///<summary>
-		/// OG_Beschreibung: Empfohlen werden zwei bis vier Sätze
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogDescription")]
-		public virtual string OgDescription => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgDescription(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OgImage => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgImage(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Titel
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogTitle")]
-		public virtual string OgTitle => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgTitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Type
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogType")]
-		public virtual string OgType => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgType(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Url
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogUrl")]
-		public virtual string OgUrl => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgUrl(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Meta Description

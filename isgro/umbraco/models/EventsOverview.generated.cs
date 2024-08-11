@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Events Übersicht</summary>
 	[PublishedModel("eventsOverview")]
-	public partial class EventsOverview : Master, IOpenGraph, ISEO
+	public partial class EventsOverview : Master, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -48,22 +48,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		}
 
 		// properties
-
-		///<summary>
-		/// Event Flächen
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("eventAreas")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel EventAreas => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "eventAreas");
-
-		///<summary>
-		/// Aufmacher Flächen
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("headAreas")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel HeadAreas => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "headAreas");
 
 		///<summary>
 		/// Überschrift: Worte mit &lt;span&gt;&lt;/span&gt; umschließen, um sie gelb zu markieren
@@ -95,46 +79,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[ImplementPropertyType("pageSize")]
 		public virtual int PageSize => this.Value<int>(_publishedValueFallback, "pageSize");
-
-		///<summary>
-		/// OG_Beschreibung: Empfohlen werden zwei bis vier Sätze
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogDescription")]
-		public virtual string OgDescription => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgDescription(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OgImage => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgImage(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Titel
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogTitle")]
-		public virtual string OgTitle => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgTitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Type
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogType")]
-		public virtual string OgType => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgType(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Url
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogUrl")]
-		public virtual string OgUrl => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgUrl(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Meta Description

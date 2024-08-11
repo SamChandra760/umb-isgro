@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Podcast Ansicht</summary>
 	[PublishedModel("podcastAnsicht")]
-	public partial class PodcastAnsicht : Master, ICtaLinkList, IFeedback, IOpenGraph, ISEO
+	public partial class PodcastAnsicht : Master, ICtaLinkList, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,14 +50,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Alternatives Bild: Dieses Bild wird als Header-Bild verwendet, wenn es ausgewählt ist.
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("alternativePodcastImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AlternativePodcastImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "alternativePodcastImage");
-
-		///<summary>
 		/// Anzahl: der Folgen (mehr als)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
@@ -80,14 +72,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual decimal BlurValue => this.Value<decimal>(_publishedValueFallback, "blurValue");
 
 		///<summary>
-		/// Kontakte
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("contactPerson")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ContactPerson => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "contactPerson");
-
-		///<summary>
 		/// Blur Effekt
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
@@ -100,14 +84,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[ImplementPropertyType("duration")]
 		public virtual int Duration => this.Value<int>(_publishedValueFallback, "duration");
-
-		///<summary>
-		/// Gelistet auf
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("listedPlatforms")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ListedPlatforms => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "listedPlatforms");
 
 		///<summary>
 		/// Logo: des Unternehmens
@@ -133,28 +109,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool OverviewHide => this.Value<bool>(_publishedValueFallback, "overviewHide");
 
 		///<summary>
-		/// Podcaster
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("podcaster")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Podcaster => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "podcaster");
-
-		///<summary>
 		/// Überschrift
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("podcastHeadline")]
 		public virtual string PodcastHeadline => this.Value<string>(_publishedValueFallback, "podcastHeadline");
-
-		///<summary>
-		/// Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("podcastImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops PodcastImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "podcastImage");
 
 		///<summary>
 		/// Podcast Name
@@ -165,28 +125,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string PodcastName => this.Value<string>(_publishedValueFallback, "podcastName");
 
 		///<summary>
-		/// Auszug
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("previewExcerpt")]
-		public virtual string PreviewExcerpt => this.Value<string>(_publishedValueFallback, "previewExcerpt");
-
-		///<summary>
 		/// Vorschau
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("previewThumbnail")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops PreviewThumbnail => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "previewThumbnail");
-
-		///<summary>
-		/// Überschrift
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("previewTitle")]
-		public virtual string PreviewTitle => this.Value<string>(_publishedValueFallback, "previewTitle");
 
 		///<summary>
 		/// Erscheinungsweise
@@ -205,99 +149,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Since => this.Value<string>(_publishedValueFallback, "since");
 
 		///<summary>
-		/// Ausgewählte Folgen
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("specialEpisodes")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel SpecialEpisodes => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "specialEpisodes");
-
-		///<summary>
 		/// Links
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("links")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> Links => global::Umbraco.Cms.Web.Common.PublishedModels.CtaLinkList.GetLinks(this, _publishedValueFallback);
-
-		///<summary>
-		/// Feedback Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackAvatar")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FeedbackAvatar => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackAvatar(this, _publishedValueFallback);
-
-		///<summary>
-		/// Headline
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackHeadline")]
-		public virtual string FeedbackHeadline => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackHeadline(this, _publishedValueFallback);
-
-		///<summary>
-		/// Link
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackLink")]
-		public virtual global::Umbraco.Cms.Core.Models.Link FeedbackLink => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackLink(this, _publishedValueFallback);
-
-		///<summary>
-		/// Text
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackText")]
-		public virtual string FeedbackText => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackText(this, _publishedValueFallback);
-
-		///<summary>
-		/// An/Aus
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[ImplementPropertyType("feedbackToggle")]
-		public virtual bool FeedbackToggle => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackToggle(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Beschreibung: Empfohlen werden zwei bis vier Sätze
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogDescription")]
-		public virtual string OgDescription => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgDescription(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OgImage => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgImage(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Titel
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogTitle")]
-		public virtual string OgTitle => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgTitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Type
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogType")]
-		public virtual string OgType => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgType(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Url
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogUrl")]
-		public virtual string OgUrl => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgUrl(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Meta Description

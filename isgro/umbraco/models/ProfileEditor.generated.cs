@@ -82,22 +82,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string DownGradeToBasisSubject => this.Value<string>(_publishedValueFallback, "downGradeToBasisSubject");
 
 		///<summary>
-		/// Footer Image
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("footerImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FooterImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "footerImage");
-
-		///<summary>
-		/// Logo
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("logo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Logo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "logo");
-
-		///<summary>
 		/// Body: **Placeholders:** {{ProviderName}} {{CurrentBusinessModel}} {{NewBusinessModel}} {{ProfileEditorLink}} {{NwbAccountLogin}}
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]

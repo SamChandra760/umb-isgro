@@ -10,7 +10,7 @@
 @await Html.GetBlockGridHtmlAsync(Model.Value<BlockGridModel>("contentBlocks"))
 
 
-@{
+@* @{
   var ds_heading = Model.Value<BlockGridModel>("ds_heading").FirstOrDefault();
   var ds_content = Model.Value<BlockGridModel>("ds_content");
   if (ds_heading != null || ds_content.Count() > 0)
@@ -76,11 +76,13 @@
       </div>
     </section>
   }
-}
+} *@
+
+
 @if (Model.HasValue("cmp_heading") || Model.HasValue("cmp_description") || Model.HasValue("cmp_video"))
 {
   <section class="compaign_section">
-    <div class="container">
+     <div class="container">
       @if (Model.HasValue("cmp_heading"))
       {
         <div class="section-heading">
@@ -90,7 +92,7 @@
         </div>
       }
       @Html.Raw(Model.Value("cmp_description"))
-    </div>
+    </div> 
     @if (Model.HasValue("cmp_video"))
     {
       var _video = Model.Value<IPublishedContent>("cmp_video");

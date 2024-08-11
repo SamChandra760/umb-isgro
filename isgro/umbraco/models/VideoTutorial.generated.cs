@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Video Tutorial</summary>
 	[PublishedModel("videoTutorial")]
-	public partial class VideoTutorial : MasterTools, ISEO, IToolPreview
+	public partial class VideoTutorial : MasterTools, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -72,21 +72,5 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("pageTitle")]
 		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetPageTitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// Auszug
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("previewExcerpt")]
-		public virtual string PreviewExcerpt => global::Umbraco.Cms.Web.Common.PublishedModels.ToolPreview.GetPreviewExcerpt(this, _publishedValueFallback);
-
-		///<summary>
-		/// Überschrift
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("previewTitle")]
-		public virtual string PreviewTitle => global::Umbraco.Cms.Web.Common.PublishedModels.ToolPreview.GetPreviewTitle(this, _publishedValueFallback);
 	}
 }

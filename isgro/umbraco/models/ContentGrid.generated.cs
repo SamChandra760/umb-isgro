@@ -18,19 +18,9 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	// Mixin Content Type with alias "contentGrid"
-	/// <summary>Content Grid</summary>
-	public partial interface IContentGrid : IPublishedElement
-	{
-		/// <summary>BlockGrid</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel BlockGrid { get; }
-	}
-
 	/// <summary>Content Grid</summary>
 	[PublishedModel("contentGrid")]
-	public partial class ContentGrid : PublishedElementModel, IContentGrid
+	public partial class ContentGrid : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -65,11 +55,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("blockGrid")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel BlockGrid => GetBlockGrid(this, _publishedValueFallback);
-
-		/// <summary>Static getter for BlockGrid</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel GetBlockGrid(IContentGrid that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>(publishedValueFallback, "blockGrid");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel BlockGrid => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>(_publishedValueFallback, "blockGrid");
 	}
 }

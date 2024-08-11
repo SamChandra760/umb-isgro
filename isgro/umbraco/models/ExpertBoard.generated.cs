@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Experten Board</summary>
 	[PublishedModel("expertBoard")]
-	public partial class ExpertBoard : Master, IOpenGraph, ISEO
+	public partial class ExpertBoard : Master, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,14 +50,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Experten
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("experts")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Experts => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "experts");
-
-		///<summary>
 		/// Überschrift: Worte mit &lt;span&gt;&lt;/span&gt; umschließen, um sie gelb zu markieren
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
@@ -80,46 +72,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("introText")]
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString IntroText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "introText");
-
-		///<summary>
-		/// OG_Beschreibung: Empfohlen werden zwei bis vier Sätze
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogDescription")]
-		public virtual string OgDescription => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgDescription(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OgImage => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgImage(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Titel
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogTitle")]
-		public virtual string OgTitle => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgTitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Type
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogType")]
-		public virtual string OgType => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgType(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Url
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogUrl")]
-		public virtual string OgUrl => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgUrl(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Meta Description

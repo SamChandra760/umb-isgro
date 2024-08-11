@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Tool</summary>
 	[PublishedModel("tool")]
-	public partial class Tool : MasterTools, IOpenGraph, ISEO
+	public partial class Tool : MasterTools, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -58,14 +58,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Link AdditionalContact => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "additionalContact");
 
 		///<summary>
-		/// Zusätzliche Datensicherheit
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("additionalDataSecurity")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> AdditionalDataSecurity => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "additionalDataSecurity");
-
-		///<summary>
 		/// Weite FAQ's
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
@@ -74,36 +66,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel AdditionalFaq => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "additionalFaq");
 
 		///<summary>
-		/// Zusätzliche Schnittstellen: max. 30chars
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("additionalInterfaces")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> AdditionalInterfaces => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "additionalInterfaces");
-
-		///<summary>
 		/// Kontakt
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("contact")]
 		public virtual global::Umbraco.Cms.Core.Models.Link Contact => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "contact");
-
-		///<summary>
-		/// Funktionen: max. 30chars
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("funktionen")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> Funktionen => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "funktionen");
-
-		///<summary>
-		/// Hauptkategorie
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("hauptkategorie")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Hauptkategorie => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "hauptkategorie");
 
 		///<summary>
 		/// Highlights
@@ -122,44 +90,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Link LinkedInLink => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "linkedInLink");
 
 		///<summary>
-		/// Weitere Links
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("moreLinks")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> MoreLinks => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(_publishedValueFallback, "moreLinks");
-
-		///<summary>
-		/// Preismodelle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("preismodelle")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Preismodelle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "preismodelle");
-
-		///<summary>
 		/// Angebot
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("requestQuote")]
 		public virtual global::Umbraco.Cms.Core.Models.Link RequestQuote => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "requestQuote");
-
-		///<summary>
-		/// Kurzbeschreibung
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("shortDescription")]
-		public virtual string ShortDescription => this.Value<string>(_publishedValueFallback, "shortDescription");
-
-		///<summary>
-		/// Unterkategorien
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subCategory")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> SubCategory => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>>(_publishedValueFallback, "subCategory");
 
 		///<summary>
 		/// Beschreibung
@@ -176,14 +112,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("toolLink")]
 		public virtual global::Umbraco.Cms.Core.Models.Link ToolLink => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "toolLink");
-
-		///<summary>
-		/// Name: max. 35 Zeichen
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("toolName")]
-		public virtual string ToolName => this.Value<string>(_publishedValueFallback, "toolName");
 
 		///<summary>
 		/// Verlinkung Preise Anbieter
@@ -208,46 +136,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("youtubeUrl")]
 		public virtual global::Umbraco.Cms.Core.Models.Link YoutubeUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "youtubeUrl");
-
-		///<summary>
-		/// OG_Beschreibung: Empfohlen werden zwei bis vier Sätze
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogDescription")]
-		public virtual string OgDescription => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgDescription(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OgImage => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgImage(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Titel
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogTitle")]
-		public virtual string OgTitle => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgTitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Type
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogType")]
-		public virtual string OgType => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgType(this, _publishedValueFallback);
-
-		///<summary>
-		/// OG_Url
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("ogUrl")]
-		public virtual string OgUrl => global::Umbraco.Cms.Web.Common.PublishedModels.OpenGraph.GetOgUrl(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Meta Description

@@ -11,6 +11,15 @@
     var verticalAlignment = settings?.ParseVerticalAlignment();
 }
 
-<div class="rich-text-wrapper @spacing @visibility @verticalAlignment" style="@bg">
-    @text
-</div>
+
+<section class="ds_section">
+    <div class="">
+        <div class="ds-content">
+            <div class="ds-content-item">
+                <div class="content aos-init rich-text-wrapper @spacing @visibility @verticalAlignment" data-aos="fade-up" style="@bg">
+                    @text
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

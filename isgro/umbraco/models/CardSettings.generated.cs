@@ -48,12 +48,5 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		}
 
 		// properties
-
-		///<summary>
-		/// Kachel: Legt fest ob die Spalte eine Kachel ist
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[ImplementPropertyType("isCard")]
-		public virtual bool IsCard => this.Value<bool>(_publishedValueFallback, "isCard");
 	}
 }

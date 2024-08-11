@@ -7,6 +7,7 @@
         --heading-heighlight-color: var(--orange);
         column-gap: 2.125rem;
     }
+
 .casse_images {
     display: flex;
     flex-wrap: wrap;
@@ -16,50 +17,77 @@
         aspect-ratio: 1;
         width: 50%;
     }
+
 .compaign_section .container {
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
-    .compaign_section .section-heading{
-        margin-bottom:3rem;
-    }
+
+.compaign_section .section-heading {
+    margin-bottom: 3rem;
+}
+
 .compaign_video_wrap {
-    aspect-ratio:16/9;
+    aspect-ratio: 16/9;
 }
-.compaign_video_wrap video{
-    width:100%;
-    height:100%;
-}
-.ds_section {
-    padding-top:3rem;
-    padding-bottom:4rem;
-}
-.ds_section .section-heading{
-    margin-bottom:2rem;
-}
-    .ds_section .ds-content{
-        display:flex;
-        flex-direction:column;
-        row-gap:3rem;
+
+    .compaign_video_wrap video {
+        width: 100%;
+        height: 100%;
     }
+
+.ds_section {
+    padding-top: 3rem;
+    /* padding-bottom:4rem;*/
+}
+
+    .ds_section.heading-line {
+        padding-top: 2.5rem;
+    }
+
+    .ds_section .section-heading {
+        /*   margin-bottom:2rem;*/
+    }
+
+    .ds_section .ds-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
+    }
+
         .ds_section .ds-content .ds-content-item {
-            display:flex;
-            align-items:flex-start;
-            gap:1rem;
-            justify-content:space-between;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            justify-content: space-between;
         }
+
+.umb-block-grid__layout-item {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
 
 @media (max-width: 1200px) {
     .compaign_section .container {
         padding-top: 4rem;
         padding-bottom: 4rem;
     }
+
     .ds_section .ds-content .ds-content-item {
         flex-wrap: wrap;
     }
-}
-    @media (max-width: 575px) {
-        .casse_images .bg-img {
-            width: 100%;
-        }
+
+    .ds_section {
+        padding-top: 0.5rem;
     }
+
+        .ds_section.heading-line {
+            padding-top: 1rem;
+        }
+}
+
+@media (max-width: 575px) {
+    .casse_images .bg-img {
+        width: 100%;
+    }
+}

@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Tools Section</summary>
 	[PublishedModel("toolsSection")]
-	public partial class ToolsSection : MasterTools, IFeedback, ISEO
+	public partial class ToolsSection : MasterTools, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -145,14 +145,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string FormularLink => this.Value<string>(_publishedValueFallback, "formularLink");
 
 		///<summary>
-		/// Wartungsseite
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("maintenancePage")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent MaintenancePage => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "maintenancePage");
-
-		///<summary>
 		/// Wartungsseite aktivieren
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
@@ -166,53 +158,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("notClaimed")]
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString NotClaimed => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "notClaimed");
-
-		///<summary>
-		/// Angeteaserte Beiträge Tools Startseite
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("taxAndBytesHighlight")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel TaxAndBytesHighlight => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "taxAndBytesHighlight");
-
-		///<summary>
-		/// Feedback Bild
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackAvatar")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FeedbackAvatar => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackAvatar(this, _publishedValueFallback);
-
-		///<summary>
-		/// Headline
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackHeadline")]
-		public virtual string FeedbackHeadline => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackHeadline(this, _publishedValueFallback);
-
-		///<summary>
-		/// Link
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackLink")]
-		public virtual global::Umbraco.Cms.Core.Models.Link FeedbackLink => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackLink(this, _publishedValueFallback);
-
-		///<summary>
-		/// Text
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("feedbackText")]
-		public virtual string FeedbackText => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackText(this, _publishedValueFallback);
-
-		///<summary>
-		/// An/Aus
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.0+a325ba3")]
-		[ImplementPropertyType("feedbackToggle")]
-		public virtual bool FeedbackToggle => global::Umbraco.Cms.Web.Common.PublishedModels.Feedback.GetFeedbackToggle(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Meta Description
